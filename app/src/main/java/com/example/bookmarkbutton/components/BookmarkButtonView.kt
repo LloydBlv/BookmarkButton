@@ -20,6 +20,7 @@ fun BookmarkButtonView(
     OutlinedButton(
         modifier = modifier,
         onClick = onBookmarkClicked,
+        enabled = !isToggling,
         content = {
             when {
                 isToggling -> CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
