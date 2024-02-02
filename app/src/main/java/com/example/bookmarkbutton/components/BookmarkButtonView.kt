@@ -7,25 +7,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.bookmarkbutton.components.BookmarkState.*
 
 typealias OnClick = () -> Unit
 
+sealed interface BookmarkState {
+    data object Bookmarked : BookmarkState
+    data object NotBookmarked : BookmarkState
+    data object Toggling : BookmarkState
+}
+
 @Composable
 fun BookmarkButtonView(
-    isBookmarked: Boolean,
-    isToggling: Boolean,
+    state: BookmarkState,
     modifier: Modifier = Modifier,
     onBookmarkClicked: OnClick
 ) {
     OutlinedButton(
         modifier = modifier,
         onClick = onBookmarkClicked,
-        enabled = !isToggling,
+        enabled = state != Toggling,
         content = {
-            when {
-                isToggling -> CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
-                isBookmarked -> Text(text = "Bookmarked")
-                else -> Text(text = "Bookmark")
+            when(state) {
+                is Toggling -> CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+                is Bookmarked -> Text(text = "Bookmarked")
+                is NotBookmarked -> Text(text = "Bookmark")
             }
         })
 }

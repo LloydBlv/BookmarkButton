@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.bookmarkbutton.components.BookmarkButtonView
+import com.example.bookmarkbutton.components.BookmarkState
 import com.example.bookmarkbutton.ui.theme.BookmarkButtonTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -39,8 +40,11 @@ class MainActivity : ComponentActivity() {
                         var toggling by remember { mutableStateOf(false) }
                         val scope = rememberCoroutineScope()
                         BookmarkButtonView(
-                            bookmarked,
-                            toggling,
+                            state = when {
+                                toggling -> BookmarkState.Toggling
+                                bookmarked -> BookmarkState.Bookmarked
+                                else -> BookmarkState.NotBookmarked
+                            },
                             onBookmarkClicked = {
                                 //Simulate toggling behaviour
                                 scope.launch {
