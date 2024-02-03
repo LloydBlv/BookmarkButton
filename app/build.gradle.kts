@@ -47,6 +47,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    testOptions.unitTests.isIncludeAndroidResources = true
 }
 
 dependencies {
@@ -59,6 +60,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.11.1")
+    testImplementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation(libs.androidx.ui.test.junit4)
 
     lintChecks(libs.compose.lint.checks)
 

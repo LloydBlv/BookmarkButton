@@ -6,8 +6,11 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.bookmarkbutton.R
 import com.example.bookmarkbutton.components.BookmarkState.*
 
 typealias OnClick = () -> Unit
@@ -25,14 +28,21 @@ fun BookmarkButtonView(
     onBookmarkClicked: OnClick
 ) {
     OutlinedButton(
-        modifier = modifier,
+        modifier = modifier.testTag("bookmark_button_tag"),
         onClick = onBookmarkClicked,
         enabled = state != Toggling,
         content = {
             when(state) {
-                is Toggling -> CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
-                is Bookmarked -> Text(text = "Bookmarked", fontSize = 33.sp)
-                is NotBookmarked -> Text(text = "Bookmark", fontSize = 33.sp)
+                is Toggling -> CircularProgressIndicator(modifier = Modifier
+                    .size(24.dp)
+                    .testTag("progress_tag"), strokeWidth = 2.dp)
+                is Bookmarked -> BookmarkText(modifier = Modifier, text = stringResource(R.string.bookmarked))
+                is NotBookmarked -> BookmarkText(modifier = Modifier, text = stringResource(R.string.bookmark))
             }
         })
+}
+
+@Composable
+private fun BookmarkText(text: String, modifier: Modifier = Modifier) {
+    Text(text = text, fontSize = 33.sp, modifier = modifier.testTag("bookmark_text_tag"))
 }
