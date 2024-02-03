@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.bookmarkbutton.components.BookmarkState.*
 
 typealias OnClick = () -> Unit
@@ -30,8 +31,8 @@ fun BookmarkButtonView(
         content = {
             when(state) {
                 is Toggling -> CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
-                is Bookmarked -> Text(text = "Bookmarked")
-                is NotBookmarked -> Text(text = "Bookmark")
+                is Bookmarked -> Text(text = "Bookmarked", fontSize = 33.sp)
+                is NotBookmarked -> Text(text = "Bookmark", fontSize = 33.sp)
             }
         })
 }
