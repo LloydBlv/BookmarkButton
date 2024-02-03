@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -66,6 +67,10 @@ dependencies {
     testImplementation("androidx.test.ext:junit-ktx:1.1.5")
     testImplementation("androidx.test.ext:junit-ktx:1.1.5")
     testImplementation(libs.androidx.ui.test.junit4)
+
+    testImplementation(libs.roborazzi)
+    testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.roborazzi.rule)
 
     lintChecks(libs.compose.lint.checks)
 
