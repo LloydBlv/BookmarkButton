@@ -17,8 +17,8 @@ To get a local copy up and running, follow these simple steps:
 
 ### Prerequisites
 
-- Android Studio Arctic Fox | 2020.3.1 or later 🛠️
-- Kotlin 1.5.0 or later 🕹️
+- Android Studio Iguana | 2023.2.1 RC 1 🛠️
+- Kotlin 1.9.22 or later 🕹️
 
 ### Installation
 
@@ -50,9 +50,6 @@ This project includes both unit tests and UI tests to ensure the bookmark button
 - **Unit Tests**: Verify the logic behind the bookmark button's states and interactions.
 - **UI Tests**: Ensure the button's integration with the UI is seamless and user interactions are handled correctly.
 
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📬 Contact
 
