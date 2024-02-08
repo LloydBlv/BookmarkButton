@@ -1,6 +1,9 @@
 
 # 🌟 Bookmark Button Demo with Jetpack Compose 🌟
 
+![ezgif-2-d14c09418d](https://github.com/LloydBlv/BookmarkButton/assets/5049185/3f4611ff-9af3-459c-87c1-430b1916ec90)
+
+
 This project is a practical demonstration of the concepts discussed in the article "[Can You Create a Bookmark Button in Jetpack Compose?](https://medium.com/@mrnajafi/can-you-create-a-bookmark-button-in-jetpack-compose-c412b3f88824)" 📖. It showcases the creation of a bookmark button in Jetpack Compose with three states - Bookmarked 📌, Not bookmarked ❌, and Toggling 🔄. The project emphasizes not just on the UI implementation but also on testing 🧪, performance 🚀, handling configuration changes 🔄, and other key aspects of feature development in Android.
 
 ## 🎉 Features
